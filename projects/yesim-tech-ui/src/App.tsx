@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Views from './views/'
 
-
 function App() {
-  return <Views/>
+
+
+
+  return <Views />
 }
 
 export default App

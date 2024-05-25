@@ -3,29 +3,19 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Product from './product'
 import Dashboard from './dashboard'
 import { RoleProvider, USER_ROLES } from '../../utils/auth/RoleProvider'
+import SiteHeader from '../../components/layout-componens/SiteHeader'
+import SiteFooter from '../../components/layout-componens/SiteFooter'
 
 function PrivateViews() {
   return <>
-    <ul>
-      <li><Link to='/'>Dashboard</Link></li>
 
-      <RoleProvider roleNumber={USER_ROLES.PRODUCT_LIST}>
-        <li><Link to='/products'>Products</Link></li>
-      </RoleProvider>
-
-    </ul>
-
+    <SiteHeader/>
     <Routes>
       <Route path='/' element={<Dashboard />} />
-
-
-      <Route path='/products/*' element={
-        <RoleProvider roleNumber={USER_ROLES.PRODUCT_LIST}><Product /></RoleProvider>
-      } />
-
-
+      <Route path='/products/*' element={<Product />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
+    <SiteFooter/>
   </>
 }
 

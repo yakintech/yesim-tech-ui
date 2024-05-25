@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }: any) => {
                 if (result.status === 200) {
                     setlogin(true)
                     setloading(false)
+                    setuser({ email: result.data.email, roles: result.data.roles, urls: result.data.urls })
                 }
                 else {
                     setlogin(false)

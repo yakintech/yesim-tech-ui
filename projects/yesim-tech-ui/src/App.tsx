@@ -3,16 +3,21 @@ import Views from './views/'
 import { useLocation } from 'react-router-dom'
 import { RouteRoleProvider } from './utils/auth/RouteRoleProvider';
 import UserDetail from './others/UserDetail';
+import YButton from './components/core-components/button';
+import Dashboard from './Dashboard';
 
 function App() {
 
-  let location = useLocation()
+
+  return <Views/>
+  // let location = useLocation()
 
 
-  return <UserDetail name='' />
-  return <RouteRoleProvider path={location.pathname}>
-    <Views />
-  </RouteRoleProvider>
+  // return <Dashboard/>
+  // return <YButton>Test</YButton>
+  // return <RouteRoleProvider path={location.pathname}>
+  //   <Views />
+  // </RouteRoleProvider>
 }
 
 export default App

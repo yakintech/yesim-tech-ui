@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }: any) => {
 
     const [isLogin, setlogin] = useState(false)
     const [loading, setloading] = useState(true)
+    const [user, setuser] = useState({})
 
     useEffect(() => {
 
@@ -24,7 +25,7 @@ export const AuthProvider = ({ children }: any) => {
                     setlogin(true)
                     setloading(false)
                 }
-                else{
+                else {
                     setlogin(false)
                     setloading(false)
                 }
@@ -36,8 +37,9 @@ export const AuthProvider = ({ children }: any) => {
     }, [])
 
 
-    const login = () => {
+    const login = (user: any) => {
         setlogin(true)
+        setuser(user)
     }
 
     const logout = () => {
@@ -45,7 +47,7 @@ export const AuthProvider = ({ children }: any) => {
     }
 
 
-    return <AuthContext.Provider value={{ login, logout, isLogin, loading }}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{ login, logout, isLogin, loading, user }}>{children}</AuthContext.Provider>
 
 }
 
@@ -53,9 +55,10 @@ export const AuthProvider = ({ children }: any) => {
 
 export type AuthContextType = {
     isLogin: boolean,
-    login: () => void,
+    login: (user: any) => void,
     logout: () => void,
-    loading: boolean
+    loading: boolean,
+    user: any
 }
 
 

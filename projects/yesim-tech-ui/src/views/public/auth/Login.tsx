@@ -18,13 +18,12 @@ function Login() {
 
     LoginService.login(data)
       .then(result => {
-        if (result == true) {
-          login()
-        }
-        else {
-          alert("EMail veya şifre yanlış!")
-        }
+        login({ email: result.email, roles: result.roles })
       })
+      .catch(error => {
+        alert("Email veya şifre yanlış")
+      }
+      )
 
   }
 

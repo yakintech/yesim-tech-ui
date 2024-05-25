@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ProductService } from '../../../../api/service/product/ProductService'
 import { ProductListModel } from './models/ProductListModel'
+import Header from './components/Header'
 
 function List() {
 
@@ -17,6 +18,7 @@ function List() {
 
 
   return <>
+    <Header />
     <ul>
       {
         products.map((product) => {

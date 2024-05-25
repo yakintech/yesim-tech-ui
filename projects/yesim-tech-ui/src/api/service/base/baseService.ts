@@ -10,7 +10,7 @@ export class BaseService {
     /**
      *
      */
-    constructor(url:string) {
+    constructor(url: string) {
         this.entityUrl = url
     }
 
@@ -51,9 +51,13 @@ export class BaseService {
                 return response
             }
             else {
+                //redirect
+                window.location.href = "/login"
                 throw new Error("Error")
             }
         } catch (error) {
+            //redirect
+            window.location.href = "/login"
             throw error
         }
     }
@@ -72,10 +76,13 @@ export class BaseService {
                 return result.data
             }
             else {
-                throw new Error("Error")
+                //redirect
+                window.location.href = "/login"
+
             }
         } catch (error) {
-            throw error
+            window.location.href = "/login"
+            console.log(error)
         }
 
     }

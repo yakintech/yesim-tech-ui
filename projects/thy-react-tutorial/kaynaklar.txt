@@ -1,0 +1,9 @@
+Import - Export
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export?retiredLocale=tr
+
+
+html to jsx
+https://transform.tools/html-to-jsx
+
+

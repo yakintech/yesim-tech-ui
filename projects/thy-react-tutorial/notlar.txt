@@ -1,0 +1,7 @@
+  * <></> Bu boş düğümlere FRAGMENT adını veriyoruz
+
+VSCode Extensions
+ES7+ React/Redux/React-Native snippets
+
+Chrome Extensions
+https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { ProductService } from '../../../../api/service/product/ProductService'
-import { ProductListModel } from './models/ProductListModel'
-import Header from './components/Header'
-import { RoleProvider } from '../../../../utils/auth/RoleProvider'
+import { YDataGrid } from '../../../../components/core-components/data-grid'
+import { useNavigate } from 'react-router-dom'
 
 function List() {
 
-  const [products, setproducts] = useState<ProductListModel[]>([])
+  const [products, setproducts] = useState([])
+
+
+
+  const deleteProduct = (id: any) => {
+    console.log(id)
+  }
 
   useEffect(() => {
 
@@ -15,29 +20,24 @@ function List() {
       setproducts(response.items)
     })
 
+
   }, [])
 
 
-  const deleteProduct = (id: number) => {
-    //
-  }
-
-
   return <>
-    <Header />
-    <ul>
-      {
-        products.map((product: any) => {
-          return <>
-            <li key={product._id}>{product.name} - {product.price}</li>
-            <button onClick={() => deleteProduct(product.id)}>Delete</button>
-          </>
-        })
-      }
-    </ul>
-
+    {
+      products.length > 0 ?
+        <YDataGrid
+          rows={products}
+          deleteRow={deleteProduct}
+          columns={[]}
+          getRowId={(row) => row._id}
+          detailRoute="/product/detail"
+          hasDetailModal={true}
+        />
+        : <h1>Loading...</h1>
+    }
   </>
 }
 
 export default List
-

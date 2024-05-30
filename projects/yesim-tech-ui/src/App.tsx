@@ -5,11 +5,16 @@ import { RouteRoleProvider } from './utils/auth/RouteRoleProvider';
 import UserDetail from './others/UserDetail';
 import YButton from './components/core-components/button';
 import Dashboard from './Dashboard';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import moment from 'moment';
+
 
 function App() {
 
 
   return <Views/>
+  // return <DayjsSample/>
   // let location = useLocation()
 
 
@@ -21,3 +26,22 @@ function App() {
 }
 
 export default App
+
+
+
+
+function DayjsSample(){
+
+    dayjs.extend(customParseFormat)
+
+    //  var dateNow = dayjs(new Date()).format("DD.MM.YYYY")
+    // console.log(dateNow)
+
+    var date = dayjs("22.01.2022", "DD.MM.YYYY")
+    console.log(date)
+
+    
+    var date2 = moment("22.01.2022", "DD.MM.YYYY")
+    console.log(date2)
+    return <></>
+}

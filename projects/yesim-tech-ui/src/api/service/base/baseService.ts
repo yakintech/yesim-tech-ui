@@ -86,6 +86,34 @@ export class BaseService {
         }
 
     }
+
+    async create(data: any): Promise<any> {
+            
+            try {
+                var token = tokenStorageHelper.getStoreWithDecryption()
+                var result = await axiosInstance.post(this.entityUrl, data, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+    
+                if (result.status === 200) {
+                    return result.data
+                }
+                else {
+                    throw new Error("Error")
+                    //redirect
+                    // window.location.href = "/login"
+    
+                }
+            } catch (error) {
+                throw new Error("Error")
+
+                // window.location.href = "/login"
+                console.log(error)
+            }
+    
+        }
 }
 
 

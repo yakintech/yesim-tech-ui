@@ -25,10 +25,13 @@ interface DataGridProps extends React.ComponentProps<typeof DataGrid> {
     // showColumns: string[]
     deleteRow: (id: any) => void
     detailRoute?: string
-    hasDetailModal?: boolean
+    hasDetailModal?: boolean 
 }
 
 export const YDataGrid = (props: DataGridProps) => {
+
+
+
     const [modalDatas, setmodalDatas] = useState<any>([])
 
     const [open, setOpen] = useState(false);

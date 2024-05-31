@@ -8,12 +8,17 @@ import Dashboard from './Dashboard';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import moment from 'moment';
+import { HelmetProvider } from 'react-helmet-async';
 
+
+const helmetContext = {};
 
 function App() {
 
 
-  return <Views/>
+  return <HelmetProvider context={helmetContext}>
+    <Views />
+  </HelmetProvider>
   // return <DayjsSample/>
   // let location = useLocation()
 
@@ -30,18 +35,18 @@ export default App
 
 
 
-function DayjsSample(){
+function DayjsSample() {
 
-    dayjs.extend(customParseFormat)
+  dayjs.extend(customParseFormat)
 
-    //  var dateNow = dayjs(new Date()).format("DD.MM.YYYY")
-    // console.log(dateNow)
+  //  var dateNow = dayjs(new Date()).format("DD.MM.YYYY")
+  // console.log(dateNow)
 
-    var date = dayjs("22.01.2022", "DD.MM.YYYY")
-    console.log(date)
+  var date = dayjs("22.01.2022", "DD.MM.YYYY")
+  console.log(date)
 
-    
-    var date2 = moment("22.01.2022", "DD.MM.YYYY")
-    console.log(date2)
-    return <></>
+
+  var date2 = moment("22.01.2022", "DD.MM.YYYY")
+  console.log(date2)
+  return <></>
 }

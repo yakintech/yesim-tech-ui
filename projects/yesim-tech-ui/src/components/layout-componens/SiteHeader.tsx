@@ -7,6 +7,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/material/styles';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import { Button } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -40,6 +42,15 @@ const AppBar = styled(MuiAppBar, {
 function SiteHeader({ open, toggleDrawer }: any) {
 
 
+  const {i18n} = useTranslation()
+
+
+  const changeLanguage = (lng: string) => {
+      i18n.changeLanguage(lng)
+      localStorage.setItem("language", lng)
+  }
+
+
   return <>
     <AppBar position="absolute" open={open}>
       <Toolbar
@@ -66,12 +77,20 @@ function SiteHeader({ open, toggleDrawer }: any) {
           noWrap
           sx={{ flexGrow: 1 }}
         >
-          Dashboard
+          Yeşim Tech React Demo
         </Typography>
         <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <NotificationsIcon />
-          </Badge>
+    
+            {/* <NotificationsIcon /> */}
+            {/* TR and EN languages button */}
+
+            <Button variant="contained" color="error" onClick={() => changeLanguage("tr")}>
+              TR
+            </Button>
+            <Button variant="contained" color="primary" onClick={() => changeLanguage("en")}>
+              EN
+            </Button>
+
         </IconButton>
       </Toolbar>
     </AppBar>

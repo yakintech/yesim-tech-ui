@@ -11,6 +11,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MuiDrawer from '@mui/material/Drawer';
 import styled from '@mui/material/styles/styled';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -46,43 +47,50 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 function LeftMenu({ open, toggleDrawer }: any) {
 
+    let { t } = useTranslation();
+
 
     let leftMenus = [
         {
-            name: 'Dashboard',
+            name: t("dashboard"),
             icon: require('@mui/icons-material/Dashboard')?.default,
             path: '/dashboard'
         },
         {
-            name: 'Products',
+            name: t("products"),
             icon: require('@mui/icons-material/ShoppingCart').default,
             path: '/products'
         },
         {
-            name: 'Orders',
+            name: t("orders"),
             icon: require('@mui/icons-material/Receipt').default,
             path: '/orders'
         },
         {
-            name: 'Settings',
+            name: t("settings"),
             icon: require('@mui/icons-material/Settings').default,
             path: '/settings'
         },
         {
-            name: 'Memo',
+            name: t("memo"),
             icon: require('@mui/icons-material/AccountCircle').default,
             path: '/memo'
         },
         {
-            name: 'Ref',
+            name: t("ref"),
             icon: require('@mui/icons-material/AccountCircle').default,
             path: '/ref'
         },
         {
-            name: 'Style',
+            name: t("style"),
             icon: require('@mui/icons-material/AccountCircle').default,
             path: '/style'
-        }
+        },
+        {
+            name: t("customhook"),
+            icon: require('@mui/icons-material/AccountCircle').default,
+            path: '/customhook'
+        },
     ]
 
 
@@ -123,8 +131,8 @@ function LeftMenu({ open, toggleDrawer }: any) {
                             </ListItemButton>
                         </Link>
                     ))}
-                  
-                  
+
+
                 </React.Fragment>
             </List>
         </Drawer>

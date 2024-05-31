@@ -64,6 +64,7 @@ export class BaseService {
 
     async getById(id: number): Promise<any> {
 
+
         try {
             var token = tokenStorageHelper.getStoreWithDecryption()
             var result = await axiosInstance.get(this.entityUrl, {

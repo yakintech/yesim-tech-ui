@@ -10,6 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MuiDrawer from '@mui/material/Drawer';
 import styled from '@mui/material/styles/styled';
+import { Link } from 'react-router-dom';
 
 
 
@@ -66,6 +67,16 @@ function LeftMenu({ open, toggleDrawer }: any) {
             name: 'Settings',
             icon: require('@mui/icons-material/Settings').default,
             path: '/settings'
+        },
+        {
+            name: 'Memo',
+            icon: require('@mui/icons-material/AccountCircle').default,
+            path: '/memo'
+        },
+        {
+            name: 'Ref',
+            icon: require('@mui/icons-material/AccountCircle').default,
+            path: '/ref'
         }
     ]
 
@@ -96,14 +107,16 @@ function LeftMenu({ open, toggleDrawer }: any) {
                         <ListItemText primary="Dashboard" />
                     </ListItemButton> */}
                     {leftMenus.map((menu, index) => (
-                        <ListItemButton key={index} component="a" href={menu.path}>
-                            <ListItemIcon>
-                                {
-                                    React.createElement(menu.icon)
-                                }
-                            </ListItemIcon>
-                            <ListItemText primary={menu.name} />
-                        </ListItemButton>
+                        <Link to={menu.path} key={index} style={{ textDecoration: 'none', color: 'black' }}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    {
+                                        React.createElement(menu.icon)
+                                    }
+                                </ListItemIcon>
+                                <ListItemText primary={menu.name} />
+                            </ListItemButton>
+                        </Link>
                     ))}
                   
                   

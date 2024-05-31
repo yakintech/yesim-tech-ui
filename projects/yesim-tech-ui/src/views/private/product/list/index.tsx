@@ -7,14 +7,12 @@ function List() {
 
   const [products, setproducts] = useState([])
 
-
-
   const deleteProduct = (id: any) => {
     console.log(id)
   }
 
   useEffect(() => {
-
+    
     var productService = new ProductService()
     productService.getAll().then((response) => {
       setproducts(response.items)

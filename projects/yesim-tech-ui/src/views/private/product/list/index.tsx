@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { ProductService } from '../../../../api/service/product/ProductService'
 import { YDataGrid } from '../../../../components/core-components/data-grid'
 import { useNavigate } from 'react-router-dom'
+import electronicImage from '../../../../assets/images/electronic.jpg'
+
 
 function List() {
 
@@ -23,6 +25,14 @@ function List() {
 
 
   return <>
+
+{/* https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Friendly_Male_Koala.JPG/1200px-Friendly_Male_Koala.JPG */}
+
+<img src={process.env.PUBLIC_URL + '/camp.jpg'} />;
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Friendly_Male_Koala.JPG/1200px-Friendly_Male_Koala.JPG" width={300} height={150} alt="Electronic" />
+
+  <img src={electronicImage} width={300} height={150} alt="Electronic" />
     {
       products.length > 0 ?
         <YDataGrid

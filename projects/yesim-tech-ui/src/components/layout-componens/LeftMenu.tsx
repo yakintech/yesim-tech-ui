@@ -77,6 +77,11 @@ function LeftMenu({ open, toggleDrawer }: any) {
             name: 'Ref',
             icon: require('@mui/icons-material/AccountCircle').default,
             path: '/ref'
+        },
+        {
+            name: 'Style',
+            icon: require('@mui/icons-material/AccountCircle').default,
+            path: '/style'
         }
     ]
 

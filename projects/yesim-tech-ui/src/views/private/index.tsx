@@ -9,9 +9,6 @@ import Paper from '@mui/material/Paper';
 import SiteHeader from '../../components/layout-componens/SiteHeader';
 import LeftMenu from '../../components/layout-componens/LeftMenu';
 import { Route, Routes } from 'react-router-dom';
-
-import Product from './product';
-import Dashboard from './dashboard';
 import SiteFooter from '../../components/layout-componens/SiteFooter';
 import { privateRoutes } from './routes';
 

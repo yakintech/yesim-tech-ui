@@ -2,6 +2,7 @@ import RefHook from "../RefHook";
 import Dashboard from "../dashboard";
 import Parent from "../memo/Parent";
 import Product from "../product";
+import StyleSample from "../style/StyleSample";
 
 export const privateRoutes: { path: string; element: JSX.Element }[] = [
     {
@@ -19,5 +20,9 @@ export const privateRoutes: { path: string; element: JSX.Element }[] = [
     {
         path: '/ref',
         element: <RefHook />,
+    },
+    {
+        path: '/style',
+        element: <StyleSample />,
     }
 ];

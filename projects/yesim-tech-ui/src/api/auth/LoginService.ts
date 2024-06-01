@@ -20,9 +20,6 @@ export class LoginService {
                 return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
             }).join(''));
 
-            console.log("EMAil", JSON.parse(jsonPayload).email)
-
-
 
             tokenStorageHelper.setStoreWithEncryption(result.data.token)
             return { email: JSON.parse(jsonPayload).email, roles: result.data.roles }

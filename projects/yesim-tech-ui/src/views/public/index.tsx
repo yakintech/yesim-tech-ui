@@ -3,6 +3,9 @@ import { Route, Routes } from 'react-router-dom'
 import Login from './auth/Login'
 
 function PublicViews() {
+
+  console.log("PublicViews")
+
   return <>
     <Routes>
       <Route path='/*' element={<Login />} />

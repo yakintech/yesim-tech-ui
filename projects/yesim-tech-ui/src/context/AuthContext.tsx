@@ -14,6 +14,11 @@ export const AuthProvider = ({ children }: any) => {
     useEffect(() => {
 
         var token = tokenStorageHelper.getStoreWithDecryption()
+        if (!token) {
+            setlogin(false)
+            setloading(false)
+            return
+        }
 
         axiosInstance.get("/", {
             headers: {

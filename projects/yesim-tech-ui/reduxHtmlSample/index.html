@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- redux cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <h1>Counter <span id="counter">0</span></h1>
+    
+
+    <button onclick="increase()">Increase</button>
+    <button onclick="decrease()">Decrease</button>
+
+    <hr>
+    <div>
+        <label for="">Number</label>
+        <input type="number" id="number">
+        <button onclick="addByValue()">Add By Value</button>
+    </div>
+
+</body>
+<script>
+
+
+    const counterReducer = (state = 0, action) => {
+        switch (action.type) {
+            case 'INCREASE':
+                return state + 1;
+            case 'DECREASE':
+                return state - 1;
+            case 'ADD_BY_VALUE':
+                return state + action.payload;
+            default:
+                return state;
+        }}
+
+        const store = Redux.createStore(counterReducer);
+
+        //global state değiştiğinde render fonksiyonu çalışacak
+        const render = () => {
+            document.getElementById('counter').innerText = store.getState();
+        }
+
+        const render2 = () => {
+            console.log('render2 çalıştı');
+        }
+
+        store.subscribe(render);
+        store.subscribe(render2);
+
+
+        const increase = () => {
+            store.dispatch({type:"INCREASE"})
+        }
+
+        const decrease = () => {
+            store.dispatch({type:"DECREASE"})
+        }
+
+        const addByValue = () => {
+            const data = document.getElementById('number').value;
+            store.dispatch({type:"ADD_BY_VALUE", payload: Number(data)})
+        }
+
+</script>
+
+</html>

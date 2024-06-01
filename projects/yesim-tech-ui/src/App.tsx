@@ -9,11 +9,21 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import moment from 'moment';
 import { HelmetProvider } from 'react-helmet-async';
+import { useDispatch } from 'react-redux';
+import { fetchAuthControl } from './store/slices/AuthSlice';
+import { AppDispatch } from './store';
 
 
 const helmetContext = {};
 
 function App() {
+
+  let dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchAuthControl())
+  }
+    , [])
 
 
   return <HelmetProvider context={helmetContext}>

@@ -9,6 +9,9 @@ import { styled } from '@mui/material/styles';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { logoutAuth } from '../../store/slices/AuthSlice';
 
 
 
@@ -44,11 +47,15 @@ function SiteHeader({ open, toggleDrawer }: any) {
 
   const {i18n} = useTranslation()
 
+  let dispatch = useDispatch<AppDispatch>();
+
 
   const changeLanguage = (lng: string) => {
       i18n.changeLanguage(lng)
       localStorage.setItem("language", lng)
   }
+
+
 
 
   return <>
@@ -89,6 +96,11 @@ function SiteHeader({ open, toggleDrawer }: any) {
             </Button>
             <Button variant="contained" color="primary" onClick={() => changeLanguage("en")}>
               EN
+            </Button>
+
+            {/* Logout Button */}
+            <Button variant="contained" color="info" onClick={() => dispatch(logoutAuth())}>
+              Logout
             </Button>
 
         </IconButton>

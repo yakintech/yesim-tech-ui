@@ -4,15 +4,19 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import './utils/i18/i18next';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AuthProvider>
+  <Provider store={store}>
+    <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
+  </Provider>
 
 );

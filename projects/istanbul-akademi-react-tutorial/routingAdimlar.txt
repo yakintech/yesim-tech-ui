@@ -1,0 +1,5 @@
+1) Paket yükle 
+npm i react-router-dom
+
+2) index.js i BrowserRouter ile sarmalla
+3) App.js e rotaları yaz. Routes içerisine Route
